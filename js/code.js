@@ -52,6 +52,7 @@ function octaveShift(midi) {
 }
 
 var blacks = [1, 3, 6, 8, 10, 13, 15, 18, 20, 22, 25, 27];
+var buttons = ["Z", "S", "X", "D", "C", "V", "G", "B", "H", "N", "J", "M", ",/Q", "L/2", "./W", "3", "E", "R", "5", "T", "6", "Y", "7", "U", "I", "9", "O", "0", "P"];
 
 function generatePiano() {
   var piano = document.getElementById("piano");
@@ -63,6 +64,7 @@ function generatePiano() {
       key.setAttribute("class", "black");
     }
     key.setAttribute("id", "key" + i.toString());
+    key.innerHTML = buttons[i];
     keys.appendChild(key);
   }
   piano.appendChild(keys);
