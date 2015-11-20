@@ -3,6 +3,10 @@
     <title>Timbre Synth</title>
     <script src="js/angular.min.js"></script>
     <script src="js/timbre.js"></script>
+    <script src="js/audio-jsonp.js"></script>
+    <script src="js/jsmad.js"></script>
+    <script src="js/mp3_decode.js"></script>
+    <script src="js/soundfont.js"></script>
     <script src="js/keyboard.js"></script>
     <script src="js/code.js"></script>
     <link rel="stylesheet" href="css/styles.css">
@@ -20,7 +24,30 @@
       <option value="+pulse">+Pulse</option>
       <option value="+tri">+Triangle</option>
       <option value="+saw">+Saw</option>
-    </select><br>
+      <option value="soundfont">Soundfont</option>
+    </select> Soundfont: <select id="soundfont-type" onchange="loadSoundfontMenu()">
+      <option value="16">All Instruments</option>
+      <option value="0">Piano</option>
+      <option value="1">Chromatic Percussion</option>
+      <option value="2">Organ</option>
+      <option value="3">Guitar</option>
+      <option value="4">Bass</option>
+      <option value="5">Strings</option>
+      <option value="6">Ensemble</option>
+      <option value="7">Brass</option>
+      <option value="8">Reed</option>
+      <option value="9">Pipe</option>
+      <option value="10">Synth Lead</option>
+      <option value="11">Synth Pad</option>
+      <option value="12">Synth Effects</option>
+      <option value="13">Ethnic</option>
+      <option value="14">Percussive</option>
+      <option value="15">Sound Effects</option>
+    </select>
+    <select id="soundfont">
+    </select>
+    <input type="button" onclick="checkNewSynth()" value="Load Synth">
+    <input type="button" onclick="preloadSoundfont()" value="Preload Soundfont"><span id="loading-status"></span>
     <div ng-app="" data-ng-init="mul = 0.25; poly = 4; attack = 50; release = 1000; hold = 0; octave = 4; decay = 300; level = 1">
       <table>
         <tr>
