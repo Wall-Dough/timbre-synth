@@ -8,97 +8,11 @@
     <script src="js/mp3_decode.js"></script>
     <script src="js/soundfont.js"></script>
     <script src="js/keyboard.js"></script>
+    <script src="js/dat.gui.min.js"></script>
     <script src="js/code.js"></script>
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    Wave: <select id="wave">
-      <option value="sin">Sine</option>
-      <option value="cos">Cosine</option>
-      <option value="pulse">Pulse</option>
-      <option value="tri">Triangle</option>
-      <option value="saw">Saw</option>
-      <option value="fami">Fami</option>
-      <option value="konami">Konami</option>
-      <option value="+sin">+Sine</option>
-      <option value="+pulse">+Pulse</option>
-      <option value="+tri">+Triangle</option>
-      <option value="+saw">+Saw</option>
-      <option value="soundfont">Soundfont</option>
-    </select> Soundfont: <select id="soundfont-type" onchange="loadSoundfontMenu()">
-      <option value="16">All Instruments</option>
-      <option value="0">Piano</option>
-      <option value="1">Chromatic Percussion</option>
-      <option value="2">Organ</option>
-      <option value="3">Guitar</option>
-      <option value="4">Bass</option>
-      <option value="5">Strings</option>
-      <option value="6">Ensemble</option>
-      <option value="7">Brass</option>
-      <option value="8">Reed</option>
-      <option value="9">Pipe</option>
-      <option value="10">Synth Lead</option>
-      <option value="11">Synth Pad</option>
-      <option value="12">Synth Effects</option>
-      <option value="13">Ethnic</option>
-      <option value="14">Percussive</option>
-      <option value="15">Sound Effects</option>
-    </select>
-    <select id="soundfont">
-    </select>
-    <input type="button" onclick="checkNewSynth()" value="Load Synth">
-    <input type="button" onclick="preloadSoundfont()" value="Preload Soundfont"><span id="loading-status"></span>
-    <div ng-app="" data-ng-init="mul = 0.25; poly = 4; attack = 50; release = 1000; hold = 0; octave = 4; decay = 300; level = 1">
-      <table>
-        <tr>
-          <td>Mul:</td>
-          <td><input type="range" id="mul" min="0.1" max="1" step="0.05" ng-model="mul"></td>
-          <td>{{mul}}</td>
-          <td>(Volume)</td>
-        </tr>
-        <tr>
-          <td>Poly:</td>
-          <td><input type="range" id="poly" min="1" max="64" step="1" ng-model="poly"></td>
-          <td>{{poly}}</td>
-          <td>(Number of notes that can be played at a time)</td>
-        </tr>
-        <tr>
-          <td>Attack:</td>
-          <td><input type="range" id="attack" min="0" max="5000" step="1" ng-model="attack"></td>
-          <td>{{attack}}</td>
-          <td>(Time to get to max volume)</td>
-        </tr>
-        <tr>
-          <td>Release:</td>
-          <td><input type="range" id="release" min="0" max="5000" step="1" ng-model="release"></td>
-          <td>{{release}}</td>
-          <td>(Time to reduce note to silence)</td>
-        </tr>
-        <tr>
-          <td>Hold Time:</td>
-          <td><input type="range" id="hold" min="0" max="5000" step="1" ng-model="hold"></td>
-          <td>{{hold}}</td>
-          <td>(How long the note is held)</td>
-        </tr>
-        <tr>
-          <td>Decay Time:</td>
-          <td><input type="range" id="decay" min="0" max="5000" step="1" ng-model="decay"></td>
-          <td>{{decay}}</td>
-          <td>(Not sure how to explain this)</td>
-        </tr>
-        <tr>
-          <td>Total Level:</td>
-          <td><input type="range" id="level" min="0" max="1" step="0.05" ng-model="level"></td>
-          <td>{{level}}</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Octave:</td>
-          <td><input type="range" id="octave" min="0" max="9" step="1" ng-model="octave"></td>
-          <td>{{octave}}</td>
-        </tr>
-      </table>
-    </div>
     <canvas id="wavePlot" style="width: 240px; height: 80px; border: 1px solid black" width="240" height="80"></canvas>
     <table id="piano">
     </table>
